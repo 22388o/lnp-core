@@ -128,7 +128,7 @@ dependencies = [
 [[package]]
 name = "bitcoin_hd"
 version = "0.6.0"
-source = "git+https://github.com/LNP-BP/descriptor-wallet#a621dd66b29a42aa1ec8f7140d32ce6e66f69882"
+source = "git+https://github.com/LNP-BP/descriptor-wallet#a03fd962f28e2cc7c13ef5e3495a08d1a2503a3f"
 dependencies = [
  "amplify",
  "bitcoin",
@@ -140,7 +140,7 @@ dependencies = [
 [[package]]
 name = "bitcoin_onchain"
 version = "0.6.0"
-source = "git+https://github.com/LNP-BP/descriptor-wallet#a621dd66b29a42aa1ec8f7140d32ce6e66f69882"
+source = "git+https://github.com/LNP-BP/descriptor-wallet#a03fd962f28e2cc7c13ef5e3495a08d1a2503a3f"
 dependencies = [
  "amplify",
  "bitcoin",
@@ -150,7 +150,7 @@ dependencies = [
 [[package]]
 name = "bitcoin_scripts"
 version = "0.6.0"
-source = "git+https://github.com/LNP-BP/descriptor-wallet#a621dd66b29a42aa1ec8f7140d32ce6e66f69882"
+source = "git+https://github.com/LNP-BP/descriptor-wallet#a03fd962f28e2cc7c13ef5e3495a08d1a2503a3f"
 dependencies = [
  "amplify",
  "bitcoin",
@@ -389,7 +389,7 @@ dependencies = [
 [[package]]
 name = "descriptor-wallet"
 version = "0.6.0"
-source = "git+https://github.com/LNP-BP/descriptor-wallet#a621dd66b29a42aa1ec8f7140d32ce6e66f69882"
+source = "git+https://github.com/LNP-BP/descriptor-wallet#a03fd962f28e2cc7c13ef5e3495a08d1a2503a3f"
 dependencies = [
  "amplify",
  "bitcoin",
@@ -400,6 +400,7 @@ dependencies = [
  "commit_verify",
  "descriptors",
  "electrum-client",
+ "lightning_encoding 0.6.0 (git+https://github.com/LNP-BP/lnp-core?branch=v0.6)",
  "miniscript",
  "psbt",
  "slip132",
@@ -409,7 +410,7 @@ dependencies = [
 [[package]]
 name = "descriptors"
 version = "0.6.0"
-source = "git+https://github.com/LNP-BP/descriptor-wallet#a621dd66b29a42aa1ec8f7140d32ce6e66f69882"
+source = "git+https://github.com/LNP-BP/descriptor-wallet#a03fd962f28e2cc7c13ef5e3495a08d1a2503a3f"
 dependencies = [
  "amplify",
  "bitcoin",
@@ -475,8 +476,7 @@ dependencies = [
 [[package]]
 name = "encoding_derive_helpers"
 version = "1.7.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8af9b20816ac9126945a6ecc1e248c4a1edfeada329839cdca9c96581174bebb"
+source = "git+https://github.com/LNP-BP/client_side_validation?branch=develop#cdd541c385854a710804ddf58fc2a3e005f41f65"
 dependencies = [
  "amplify",
  "proc-macro2",
@@ -486,8 +486,9 @@ dependencies = [
 
 [[package]]
 name = "encoding_derive_helpers"
-version = "1.7.4"
-source = "git+https://github.com/LNP-BP/client_side_validation?branch=develop#cdd541c385854a710804ddf58fc2a3e005f41f65"
+version = "1.7.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "df85c511a2f01954d1fad7d7d20eeae1af35157fbaec35261c91fab53d76bb58"
 dependencies = [
  "amplify",
  "proc-macro2",
@@ -694,24 +695,24 @@ version = "0.6.0"
 dependencies = [
  "amplify",
  "bitcoin",
+ "bitcoin_hashes",
  "chrono",
- "descriptor-wallet",
  "lightning_encoding_derive 0.5.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "lnpbp",
+ "secp256k1",
  "strict_encoding",
 ]
 
 [[package]]
 name = "lightning_encoding"
 version = "0.6.0"
-source = "git+https://github.com/LNP-BP/lnp-core?branch=v0.6#f9168fed20af0b3072d10e31c96bf9085c84b791"
+source = "git+https://github.com/LNP-BP/lnp-core?branch=v0.6#8d61df6f109428da1dd7cd7fc86d50659bcf89ce"
 dependencies = [
  "amplify",
  "bitcoin",
+ "bitcoin_hashes",
  "chrono",
- "descriptor-wallet",
  "lightning_encoding_derive 0.5.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "lnpbp",
+ "secp256k1",
  "strict_encoding",
 ]
 
@@ -721,7 +722,7 @@ version = "0.5.0"
 dependencies = [
  "amplify_derive",
  "amplify_syn",
- "encoding_derive_helpers 1.7.4 (registry+https://github.com/rust-lang/crates.io-index)",
+ "encoding_derive_helpers 1.7.5",
  "lightning_encoding 0.6.0",
  "proc-macro2",
  "quote",
@@ -735,7 +736,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3cc5449b552f69a6cf6f1c580c0444018f9b592edf0119cf66cc3fc3caf62744"
 dependencies = [
  "amplify_syn",
- "encoding_derive_helpers 1.7.4 (registry+https://github.com/rust-lang/crates.io-index)",
+ "encoding_derive_helpers 1.7.5",
  "proc-macro2",
  "quote",
  "syn",
@@ -785,7 +786,7 @@ dependencies = [
 [[package]]
 name = "lnpbp"
 version = "0.6.0"
-source = "git+https://github.com/LNP-BP/rust-lnpbp?branch=v0.6#232d69aa39ab58958269ded614b57c59e58bc4dc"
+source = "git+https://github.com/LNP-BP/rust-lnpbp?branch=v0.6#8daef3ff2d1ac33ae9e96ef95a3a7d4138788f0b"
 dependencies = [
  "amplify",
  "lnpbp_bech32",
@@ -795,7 +796,7 @@ dependencies = [
 [[package]]
 name = "lnpbp_bech32"
 version = "0.6.0"
-source = "git+https://github.com/LNP-BP/rust-lnpbp?branch=v0.6#232d69aa39ab58958269ded614b57c59e58bc4dc"
+source = "git+https://github.com/LNP-BP/rust-lnpbp?branch=v0.6#8daef3ff2d1ac33ae9e96ef95a3a7d4138788f0b"
 dependencies = [
  "amplify",
  "bech32",
@@ -808,12 +809,13 @@ dependencies = [
 [[package]]
 name = "lnpbp_chain"
 version = "0.6.0"
-source = "git+https://github.com/LNP-BP/rust-lnpbp?branch=v0.6#232d69aa39ab58958269ded614b57c59e58bc4dc"
+source = "git+https://github.com/LNP-BP/rust-lnpbp?branch=v0.6#8daef3ff2d1ac33ae9e96ef95a3a7d4138788f0b"
 dependencies = [
  "amplify",
  "bitcoin",
  "bitcoin_hashes",
  "lazy_static",
+ "lightning_encoding 0.6.0 (git+https://github.com/LNP-BP/lnp-core?branch=v0.6)",
  "strict_encoding",
 ]
 
@@ -946,7 +948,7 @@ dependencies = [
 [[package]]
 name = "psbt"
 version = "0.6.0"
-source = "git+https://github.com/LNP-BP/descriptor-wallet#a621dd66b29a42aa1ec8f7140d32ce6e66f69882"
+source = "git+https://github.com/LNP-BP/descriptor-wallet#a03fd962f28e2cc7c13ef5e3495a08d1a2503a3f"
 dependencies = [
  "amplify",
  "bitcoin",
@@ -1358,7 +1360,7 @@ checksum = "02658e48d89f2bec991f9a78e69cfa4c316f8d6a6c4ec12fae1aeb263d486788"
 [[package]]
 name = "slip132"
 version = "0.6.0"
-source = "git+https://github.com/LNP-BP/descriptor-wallet#a621dd66b29a42aa1ec8f7140d32ce6e66f69882"
+source = "git+https://github.com/LNP-BP/descriptor-wallet#a03fd962f28e2cc7c13ef5e3495a08d1a2503a3f"
 dependencies = [
  "amplify",
  "bitcoin",
@@ -1402,7 +1404,7 @@ version = "1.7.4"
 source = "git+https://github.com/LNP-BP/client_side_validation?branch=develop#cdd541c385854a710804ddf58fc2a3e005f41f65"
 dependencies = [
  "amplify_syn",
- "encoding_derive_helpers 1.7.4 (git+https://github.com/LNP-BP/client_side_validation?branch=develop)",
+ "encoding_derive_helpers 1.7.4",
  "proc-macro2",
  "syn",
 ]

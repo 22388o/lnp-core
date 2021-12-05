@@ -11,7 +11,7 @@
 // along with this software.
 // If not, see <https://opensource.org/licenses/MIT>.
 
-use bitcoin::{hashes, secp256k1};
+use bitcoin_hashes as hashes;
 
 use super::{strategies, Strategy};
 
@@ -47,14 +47,17 @@ where
     type Strategy = strategies::AsBitcoinHash;
 }
 
+#[cfg(feature = "bitcoin")]
 impl Strategy for bitcoin::Txid {
     type Strategy = strategies::AsBitcoinHash;
 }
 
+#[cfg(feature = "bitcoin")]
 impl Strategy for bitcoin::OutPoint {
     type Strategy = strategies::AsStrict;
 }
 
+#[cfg(feature = "bitcoin")]
 impl Strategy for bitcoin::Script {
     // NB: Existing BOLTs define script length as u16, not BigSize, so we
     // can use this trick for now
@@ -63,6 +66,7 @@ impl Strategy for bitcoin::Script {
     type Strategy = strategies::AsStrict;
 }
 
+#[cfg(feature = "bitcoin")]
 impl Strategy for bitcoin::PublicKey {
     type Strategy = strategies::AsStrict;
 }
@@ -72,17 +76,5 @@ impl Strategy for secp256k1::PublicKey {
 }
 
 impl Strategy for secp256k1::Signature {
-    type Strategy = strategies::AsStrict;
-}
-
-impl Strategy for wallet::hlc::HashLock {
-    type Strategy = strategies::AsStrict;
-}
-
-impl Strategy for wallet::hlc::HashPreimage {
-    type Strategy = strategies::AsStrict;
-}
-
-impl Strategy for lnpbp::chain::AssetId {
     type Strategy = strategies::AsStrict;
 }

@@ -19,14 +19,14 @@ crate-type = ["rlib", "staticlib"]
 
 [dependencies]
 amplify = "3.9.1"
-strict_encoding = { version = "1.8.0", git = "https://github.com/LNP-BP/client_side_validation", branch = "develop" }
+strict_encoding = { version = "1.8.0", git = "https://github.com/LNP-BP/client_side_validation", branch = "develop", default-features = false, features = ["derive"] }
 lightning_encoding_derive = { version = "0.5.0", optional = true }
-descriptor-wallet = { version = "0.6.0", git = "https://github.com/LNP-BP/descriptor-wallet" }
-lnpbp = { version = "0.6.0", git = "https://github.com/LNP-BP/rust-lnpbp", branch = "v0.6" }
-bitcoin = { version = "0.28", git = "https://github.com/LNP-BP/rust-bitcoin", branch = "taproot/all" }
+bitcoin_hashes = "0.10.0" # We need this when bitcoin feature is off
+secp256k1 = "0.20.3" # We need this when bitcoin feature is off
+bitcoin = { version = "0.28.0", git = "https://github.com/LNP-BP/rust-bitcoin", branch = "taproot/all", optional = true }
 chrono = "0.4.19"
 
 [features]
-default = ["derive"]
-all = ["derive"]
+default = ["derive", "bitcoin"]
+all = ["derive", "bitcoin"]
 derive = ["lightning_encoding_derive"]
